@@ -1,0 +1,264 @@
+{
+    "$schema": "https://opencode.ai/theme.json",
+    "defs": {
+        "draculaBackground": "#282A36",
+        "draculaCurrentLine": "#6272A4",
+        "draculaSelection": "#44475A",
+        "draculaForeground": "#F8F8F2",
+        "draculaComment": "#6272A4",
+        "draculaRed": "#FF5555",
+        "draculaOrange": "#FFB86C",
+        "draculaYellow": "#F1FA8C",
+        "draculaGreen": "#50FA7B",
+        "draculaCyan": "#8BE9FD",
+        "draculaPurple": "#BD93F9",
+        "draculaPink": "#FF79C6",
+        "draculaLineFallback": "#353747",
+        "draculaFloating": "#343746",
+        "draculaBackgroundLighter": "#424450",
+        "draculaBackgroundDark": "#21222C",
+        "draculaBackgroundDarker": "#191A21",
+        "draculaAnsiBrightRed": "#FF6E6E",
+        "draculaAnsiBrightGreen": "#69FF94",
+        "draculaAnsiBrightYellow": "#FFFFA5",
+        "draculaAnsiBrightBlue": "#D6ACFF",
+        "draculaAnsiBrightMagenta": "#FF92DF",
+        "draculaAnsiBrightCyan": "#A4FFFF",
+        "draculaAnsiBrightWhite": "#FFFFFF",
+        "alucardBackground": "#FFFBEB",
+        "alucardCurrentLine": "#6C664B",
+        "alucardSelection": "#CFCFDE",
+        "alucardForeground": "#1F1F1F",
+        "alucardComment": "#6C664B",
+        "alucardRed": "#CB3A2A",
+        "alucardOrange": "#A34D14",
+        "alucardYellow": "#846E15",
+        "alucardGreen": "#14710A",
+        "alucardCyan": "#036A96",
+        "alucardPurple": "#644AC9",
+        "alucardPink": "#A3144D",
+        "alucardLineFallback": "#E2DECA",
+        "alucardFloating": "#EFEDDC",
+        "alucardBackgroundLighter": "#ECE9DF",
+        "alucardBackgroundLight": "#DEDCCF",
+        "alucardBackgroundDark": "#CECCC0",
+        "alucardBackgroundDarker": "#BCBAB3",
+        "alucardAnsiBrightRed": "#D74C3D",
+        "alucardAnsiBrightGreen": "#198D0C",
+        "alucardAnsiBrightYellow": "#9E841A",
+        "alucardAnsiBrightBlue": "#7862D0",
+        "alucardAnsiBrightMagenta": "#BF185A",
+        "alucardAnsiBrightCyan": "#047FB4",
+        "alucardAnsiBrightWhite": "#2C2B31",
+        "draculaDiffAddedBg": "#1a3a28",
+        "draculaDiffRemovedBg": "#4d1f30",
+        "draculaDiffAddedLineNumberBg": "#0f2a1a",
+        "draculaDiffRemovedLineNumberBg": "#3a1622",
+        "alucardDiffAddedBg": "#c8f0d8",
+        "alucardDiffRemovedBg": "#f0c8d8",
+        "alucardDiffAddedLineNumberBg": "#a8e0c0",
+        "alucardDiffRemovedLineNumberBg": "#e0a8c0"
+    },
+    "theme": {
+        "primary": {
+            "dark": "draculaCyan",
+            "light": "alucardCyan"
+        },
+        "secondary": {
+            "dark": "draculaPurple",
+            "light": "alucardPurple"
+        },
+        "accent": {
+            "dark": "draculaPink",
+            "light": "alucardPink"
+        },
+        "error": {
+            "dark": "draculaAnsiBrightRed",
+            "light": "alucardRed"
+        },
+        "warning": {
+            "dark": "draculaAnsiBrightYellow",
+            "light": "alucardOrange"
+        },
+        "success": {
+            "dark": "draculaAnsiBrightGreen",
+            "light": "alucardGreen"
+        },
+        "info": {
+            "dark": "draculaAnsiBrightCyan",
+            "light": "alucardCyan"
+        },
+        "text": {
+            "dark": "draculaForeground",
+            "light": "alucardForeground"
+        },
+        "textMuted": {
+            "dark": "draculaComment",
+            "light": "alucardComment"
+        },
+        "background": {
+            "dark": "draculaBackgroundDarker",
+            "light": "alucardBackground"
+        },
+        "backgroundPanel": {
+            "dark": "draculaBackgroundDark",
+            "light": "alucardFloating"
+        },
+        "backgroundElement": {
+            "dark": "draculaLineFallback",
+            "light": "alucardLineFallback"
+        },
+        "border": {
+            "dark": "draculaCurrentLine",
+            "light": "alucardCurrentLine"
+        },
+        "borderActive": {
+            "dark": "draculaPink",
+            "light": "alucardPurple"
+        },
+        "borderSubtle": {
+            "dark": "draculaSelection",
+            "light": "alucardSelection"
+        },
+        "diffAdded": {
+            "dark": "draculaAnsiBrightGreen",
+            "light": "alucardAnsiBrightGreen"
+        },
+        "diffRemoved": {
+            "dark": "draculaAnsiBrightRed",
+            "light": "alucardAnsiBrightRed"
+        },
+        "diffContext": {
+            "dark": "draculaForeground",
+            "light": "alucardForeground"
+        },
+        "diffHunkHeader": {
+            "dark": "draculaAnsiBrightBlue",
+            "light": "alucardAnsiBrightBlue"
+        },
+        "diffHighlightAdded": {
+            "dark": "draculaAnsiBrightGreen",
+            "light": "alucardAnsiBrightGreen"
+        },
+        "diffHighlightRemoved": {
+            "dark": "draculaAnsiBrightRed",
+            "light": "alucardAnsiBrightRed"
+        },
+        "diffAddedBg": {
+            "dark": "draculaDiffAddedBg",
+            "light": "alucardDiffAddedBg"
+        },
+        "diffRemovedBg": {
+            "dark": "draculaDiffRemovedBg",
+            "light": "alucardDiffRemovedBg"
+        },
+        "diffContextBg": {
+            "dark": "draculaBackgroundDark",
+            "light": "alucardFloating"
+        },
+        "diffLineNumber": {
+            "dark": "draculaCurrentLine",
+            "light": "alucardCurrentLine"
+        },
+        "diffAddedLineNumberBg": {
+            "dark": "draculaDiffAddedLineNumberBg",
+            "light": "alucardDiffAddedLineNumberBg"
+        },
+        "diffRemovedLineNumberBg": {
+            "dark": "draculaDiffRemovedLineNumberBg",
+            "light": "alucardDiffRemovedLineNumberBg"
+        },
+        "markdownText": {
+            "dark": "draculaForeground",
+            "light": "alucardForeground"
+        },
+        "markdownHeading": {
+            "dark": "draculaPurple",
+            "light": "alucardPurple"
+        },
+        "markdownLink": {
+            "dark": "draculaCyan",
+            "light": "alucardCyan"
+        },
+        "markdownLinkText": {
+            "dark": "draculaPink",
+            "light": "alucardPink"
+        },
+        "markdownCode": {
+            "dark": "draculaGreen",
+            "light": "alucardGreen"
+        },
+        "markdownBlockQuote": {
+            "dark": "draculaYellow",
+            "light": "alucardYellow"
+        },
+        "markdownEmph": {
+            "dark": "draculaYellow",
+            "light": "alucardYellow"
+        },
+        "markdownStrong": {
+            "dark": "draculaOrange",
+            "light": "alucardOrange"
+        },
+        "markdownHorizontalRule": {
+            "dark": "draculaCurrentLine",
+            "light": "alucardCurrentLine"
+        },
+        "markdownListItem": {
+            "dark": "draculaCyan",
+            "light": "alucardCyan"
+        },
+        "markdownListEnumeration": {
+            "dark": "draculaCyan",
+            "light": "alucardCyan"
+        },
+        "markdownImage": {
+            "dark": "draculaCyan",
+            "light": "alucardCyan"
+        },
+        "markdownImageText": {
+            "dark": "draculaPink",
+            "light": "alucardPink"
+        },
+        "markdownCodeBlock": {
+            "dark": "draculaForeground",
+            "light": "alucardForeground"
+        },
+        "syntaxComment": {
+            "dark": "draculaComment",
+            "light": "alucardComment"
+        },
+        "syntaxKeyword": {
+            "dark": "draculaPink",
+            "light": "alucardPink"
+        },
+        "syntaxFunction": {
+            "dark": "draculaGreen",
+            "light": "alucardGreen"
+        },
+        "syntaxVariable": {
+            "dark": "draculaForeground",
+            "light": "alucardForeground"
+        },
+        "syntaxString": {
+            "dark": "draculaYellow",
+            "light": "alucardYellow"
+        },
+        "syntaxNumber": {
+            "dark": "draculaPurple",
+            "light": "alucardPurple"
+        },
+        "syntaxType": {
+            "dark": "draculaCyan",
+            "light": "alucardCyan"
+        },
+        "syntaxOperator": {
+            "dark": "draculaPink",
+            "light": "alucardPink"
+        },
+        "syntaxPunctuation": {
+            "dark": "draculaForeground",
+            "light": "alucardForeground"
+        }
+    }
+}
