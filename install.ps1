@@ -14,7 +14,7 @@ function Ensure-Directory {
     }
 }
 
-function Copy-DirectoryContents {
+function Sync-DirectoryContents {
     param(
         [Parameter(Mandatory = $true)][string]$Source,
         [Parameter(Mandatory = $true)][string]$Destination
@@ -24,9 +24,67 @@ function Copy-DirectoryContents {
         throw "Source directory not found: $Source"
     }
 
+    $sourcePath = [System.IO.Path]::GetFullPath($Source).TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    $destinationPath = [System.IO.Path]::GetFullPath($Destination).TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    if ([string]::Equals($sourcePath, $destinationPath, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "Source and destination are the same directory: $Source"
+    }
+
+    if (Test-Path -LiteralPath $Destination -PathType Container) {
+        Remove-Item -LiteralPath $Destination -Recurse -Force
+    }
+
     Ensure-Directory -Path $Destination
     Get-ChildItem -LiteralPath $Source -Force | ForEach-Object {
         Copy-Item -LiteralPath $_.FullName -Destination $Destination -Recurse -Force
+    }
+}
+
+function Sync-OpencodeConfig {
+    param(
+        [Parameter(Mandatory = $true)][string]$Source,
+        [Parameter(Mandatory = $true)][string]$Destination
+    )
+
+    if (-not (Test-Path -LiteralPath $Source -PathType Container)) {
+        throw "Source directory not found: $Source"
+    }
+
+    $sourcePath = [System.IO.Path]::GetFullPath($Source).TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    $destinationPath = [System.IO.Path]::GetFullPath($Destination).TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    if ([string]::Equals($sourcePath, $destinationPath, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "Source and destination are the same directory: $Source"
+    }
+
+    Ensure-Directory -Path $Destination
+
+    $managedItems = @(
+        "agents",
+        "plugins",
+        "skills",
+        "themes",
+        "AGENTS.md",
+        "opencode.json",
+        "tui.json",
+        "tsconfig.json",
+        "pnpm-workspace.yaml",
+        "package.json",
+        ".gitignore",
+        ".markdownlint-cli2.jsonc",
+        ".prettierrc"
+    )
+
+    foreach ($item in $managedItems) {
+        $sourceItem = Join-Path $Source $item
+        $destinationItem = Join-Path $Destination $item
+
+        if (Test-Path -LiteralPath $destinationItem) {
+            Remove-Item -LiteralPath $destinationItem -Recurse -Force
+        }
+
+        if (Test-Path -LiteralPath $sourceItem) {
+            Copy-Item -LiteralPath $sourceItem -Destination $Destination -Recurse -Force
+        }
     }
 }
 
@@ -106,11 +164,11 @@ try {
 
     # Opencode
     $ocPath = Join-Path $env:USERPROFILE ".config\opencode"
-    Copy-DirectoryContents -Source $opencodeSource -Destination $ocPath
+    Sync-OpencodeConfig -Source $opencodeSource -Destination $ocPath
 
     # PowerShell
     $pwshConfigDir = Join-Path $env:USERPROFILE ".config\pwsh"
-    Copy-DirectoryContents -Source (Join-Path $scriptDir "pwsh") -Destination $pwshConfigDir
+    Sync-DirectoryContents -Source (Join-Path $scriptDir "pwsh") -Destination $pwshConfigDir
 
     $documentsDir = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::MyDocuments)
     if ([string]::IsNullOrWhiteSpace($documentsDir)) {
