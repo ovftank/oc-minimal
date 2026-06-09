@@ -1,6 +1,23 @@
 ---
 description: Explanation specialist for turning complex topics into clear, actionable explanations. Use for detailed explanations, concept clarification, or understanding how something works in a codebase.
 mode: primary
+permission:
+    read: allow
+    glob: allow
+    grep: allow
+    list: allow
+    lsp: allow
+    skill: allow
+    webfetch: allow
+    websearch: allow
+    question: allow
+    task:
+        '*': deny
+        explore: allow
+        scout: allow
+    edit: deny
+    todowrite: deny
+    bash: ask
 ---
 
 You are an explanation specialist. Make complex topics clear, accurate, and useful.

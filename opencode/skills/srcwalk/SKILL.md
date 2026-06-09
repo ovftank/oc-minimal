@@ -8,10 +8,22 @@ description: "Srcwalk is the agent's code navigator: one tree-sitter CLI for rep
 
 Default to srcwalk for code navigation, large-file reading, repo maps, symbols, callers/callees, deps, and impact checks. Use raw reads or broad grep first only for pure text/path matching.
 
+Do not require `srcwalk` to be added to `PATH`. `install.ps1` copies this skill to `%USERPROFILE%\.config\opencode\skills\srcwalk`; in OpenCode's bash shell, use the equivalent `$HOME` path:
+
+```bash
+"$HOME/.config/opencode/skills/srcwalk/srcwalk.exe" <args>
+```
+
+When working inside this repo before install, use:
+
+```bash
+./opencode/skills/srcwalk/srcwalk.exe <args>
+```
+
 Before non-trivial use, you must run:
 
 ```bash
-srcwalk guide
+"$HOME/.config/opencode/skills/srcwalk/srcwalk.exe" guide
 ```
 
 Do not pipe, truncate, summarize, or sample `srcwalk guide`; later sections contain important routing rules and caveats.
@@ -19,6 +31,6 @@ Do not pipe, truncate, summarize, or sample `srcwalk guide`; later sections cont
 Use root/command help only for flags:
 
 ```bash
-srcwalk --help
-srcwalk <command> --help
+"$HOME/.config/opencode/skills/srcwalk/srcwalk.exe" --help
+"$HOME/.config/opencode/skills/srcwalk/srcwalk.exe" <command> --help
 ```

@@ -7,7 +7,6 @@
 
 ## requirements
 
-- srcwalk: <https://github.com/sting8k/srcwalk/releases>
 - powershell 7: <https://github.com/PowerShell/PowerShell/releases>
 - windows terminal canary: <https://aka.ms/terminal-canary-installer>
 - chocolatey:
@@ -20,6 +19,16 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 ```powershell
 choco install ripgrep -y
+```
+
+- git:
+
+```powershell
+$gitUninstaller = "C:\Program Files\Git\unins000.exe"
+if (Test-Path $gitUninstaller) {
+    Start-Process -FilePath $gitUninstaller -ArgumentList "/SILENT" -Wait -ErrorAction SilentlyContinue
+}
+choco install git.install --params "'/GitAndUnixToolsOnPath /NoShellIntegration /NoGuiHereIntegration'" -y --force
 ```
 
 - eza:
@@ -40,4 +49,3 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 - `clarify`: làm rõ yc.
 - `plan`: vẽ plan để implement.
 - `build`: như cái tên, `build` thôi =)))
-
